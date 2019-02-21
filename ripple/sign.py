@@ -90,7 +90,7 @@ def root_key_from_seed(seed):
     # have to calculate a secret from them that can be used as a ECDSA
     # signing key.
     secret = i = 0
-    public_gen_compressed = ecc_point_to_bytes_compressed(public_gen)
+    public_gen_compressed = ecc_point_to_bytes_compressed(public_gen, pad=True)
     while True:
         secret = from_bytes(first_half_of_sha512(
             b"".join([
